@@ -81,7 +81,8 @@ f<-function(i)
   #  convert raster to data.data.table & remove unburned and unclassified (dt>0)
   vr<-getValues(r,row=ROW,nrows=NROWS)
   cells <- cellFromRowCol(r, c(ROW, ROW + NROWS - 1), c(1, ncol(r)))
-  coordsr <- xyFromCell(r, cell = cells[1]:cells[2])xyd<-data.table(x=coordsr[,1], y=coordsr[,2], dt=vr) 
+  coordsr <- xyFromCell(r, cell = cells[1]:cells[2])
+  xyd<-data.table(x=coordsr[,1], y=coordsr[,2], dt=vr) 
   xyd<-xyd[dt>0] # & x==x1 & y==y1]
   colnames(xyd)<-c("lon","lat","dt")
   
